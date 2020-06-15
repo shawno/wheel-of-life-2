@@ -16,50 +16,6 @@ var options = {
   },
   hAxis: {
     format:'MMM y'
-  },
-  trendlines: {
-    0: {
-      type: 'linear',
-      color: 'blue',
-      lineWidth: 1,
-      opacity: 0.3
-    },
-    1: {
-      type: 'linear',
-      color: 'red',
-      lineWidth: 1,
-      opacity: 0.3
-    },
-    2: {
-      type: 'linear',
-      color: 'orange',
-      lineWidth: 1,
-      opacity: 0.3
-    },
-    3: {
-      type: 'linear',
-      color: 'green',
-      lineWidth: 1,
-      opacity: 0.3
-    },
-    4: {
-      type: 'linear',
-      color: 'purple',
-      lineWidth: 1,
-      opacity: 0.3
-    },
-    5: {
-      type: 'linear',
-      color: 'teal',
-      lineWidth: 1,
-      opacity: 0.3
-    },
-    6: {
-      type: 'linear',
-      color: 'pink',
-      lineWidth: 1,
-      opacity: 0.3
-    }
   }
 };
 
