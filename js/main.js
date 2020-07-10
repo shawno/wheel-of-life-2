@@ -33,7 +33,8 @@ function drawChart() {
     [new Date(2020,  1, 17),  2,  1,  5,  4,  7,  6,  7,  7],
     [new Date(2020,  2, 23),  2,  2,  5,  4,  7,  7,  6,  7],
     [new Date(2020,  3, 30),  6,  4,  7,  6,  6,  8,  6,  8],
-    [new Date(2020,  5, 14),  4,  5,  7,  4,  7,  8,  6,  9]
+    [new Date(2020,  5, 14),  4,  5,  7,  4,  7,  8,  6,  9],
+    [new Date(2020,  6, 10),  2,  4,  6,  7,  6,  7,  5,  9]
   ]);
 
   var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
