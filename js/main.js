@@ -5,6 +5,7 @@ google.charts.setOnLoadCallback(drawChart);
 
 var options = { 
   title: 'Wheel of Life over Time',
+  displayAnnotations: true,
   curveType: 'function',
   legend: { 
     position: 'right' 
@@ -39,7 +40,38 @@ function drawChart() {
     [new Date(2020,  8,  4),  6,  4,  8,  7,  7,  9,  8,  9]
   ]);
 
+  
+ data = new google.visualization.DataTable();
+data.addColumn('string', 'Month'); // Implicit domain label col.
+data.addColumn('number', 'Sales'); // Implicit series 1 data col.
+data.addColumn({type:'number', role:'interval'});  // interval role col.
+data.addColumn({type:'number', role:'interval'});  // interval role col.
+data.addColumn({type:'string', role:'annotation'}); // annotation role col.
+data.addColumn({type:'string', role:'annotationText'}); // annotationText col.
+data.addColumn({type:'boolean',role:'certainty'}); // certainty col.
+data.addRows([
+    ['April',1000,  900, 1100,  'A','Stolen data', true],
+    ['May',  1170, 1000, 1200,  'B','Coffee spill', true],
+    ['June',  660,  550,  800,  'C','Wumpus attack', true],
+    ['July', 1030, null, null, null, null, false]
+]);
+
+
+  data = new google.visualization.DataTable();
+  data.addColumn('date', 'Date');
+  data.addColumn('number', 'Career');
+  data.addColumn({type:'string', role:'annotation'}); // annotation role col.
+  data.addColumn({type:'string', role:'annotationText'}); // annotationText col.
+
+  data.addRows([
+    [new Date(2019,  9, 31),  2, null, null], //career
+    [new Date(2019, 10,  1),  6, '.', 'testBody'], //Career
+    [new Date(2019, 10, 25),  1, null, null]
+  ]);
+  
+  
   var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+  //var chart = new google.visualization.AnnotationChart(document.getElementById('curve_chart'));
 
   chart.draw(data, options);
 }
