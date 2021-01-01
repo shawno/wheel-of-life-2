@@ -12,7 +12,7 @@ Wheel:
     Physical  XXX  XXX|XXX   XX       Health
     Environment XX    |   XXX
                  X \  |   /  X
-   +-----------------------------------------+
+   -----------------------------------------
                 X    /|\      X
                  XX/  |  \   X
      Fun &        XXXX|XX XXX        Love
