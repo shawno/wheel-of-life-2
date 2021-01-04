@@ -16,10 +16,13 @@ var options = {
     viewWindow: {
       min: 0,
       max: 10
+    },
+    gridlines: {
+      count: 10
     }
   },
   hAxis: {
-    format:'MMM y'
+    format:'MMM d, y'
   },
   explorer: {
     axis: 'horizontal',
