@@ -7,8 +7,10 @@ var options = {
   title: 'Wheel of Life over Time',
   displayAnnotations: true,
   curveType: 'function',
+  chartArea: {width: '90%', height: '80%'},
   legend: { 
-    position: 'right' 
+    position: 'top',
+    maxLines: 3 
   },
   vAxis: { 
     viewWindow: {
@@ -18,7 +20,19 @@ var options = {
   },
   hAxis: {
     format:'MMM y'
-  }
+  },
+  explorer: {
+    axis: 'horizontal',
+    keepInBounds: true,
+    maxZoomOut: 1
+  },
+  focusTarget: 'category'
+  // series:{
+  //   0:{
+  //     lineWidth: 80,
+  //     color: '#eef'
+  //   }
+  // }
 };
 
 function drawChart() {
@@ -44,22 +58,6 @@ function drawChart() {
     [new Date(2021,  0,  2),  4,  2,  8,  7,  5,  8,  7,  9]
   ]);
 
-  
- data = new google.visualization.DataTable();
-data.addColumn('string', 'Month'); // Implicit domain label col.
-data.addColumn('number', 'Sales'); // Implicit series 1 data col.
-data.addColumn({type:'number', role:'interval'});  // interval role col.
-data.addColumn({type:'number', role:'interval'});  // interval role col.
-data.addColumn({type:'string', role:'annotation'}); // annotation role col.
-data.addColumn({type:'string', role:'annotationText'}); // annotationText col.
-data.addColumn({type:'boolean',role:'certainty'}); // certainty col.
-data.addRows([
-    ['April',1000,  900, 1100,  'A','Stolen data', true],
-    ['May',  1170, 1000, 1200,  'B','Coffee spill', true],
-    ['June',  660,  550,  800,  'C','Wumpus attack', true],
-    ['July', 1030, null, null, null, null, false]
-]);
-
 
   data = new google.visualization.DataTable();
   data.addColumn('date', 'Date');
@@ -69,7 +67,7 @@ data.addRows([
 
   data.addRows([
     [new Date(2019,  9, 31),  2, null, null], //career
-    [new Date(2019, 10,  1),  6, '.', 'testBody'], //Career
+    [new Date(2019, 10,  1),  6, 'Test Label', 'test Body this thing happened'], //Career
     [new Date(2019, 10, 25),  1, null, null]
   ]);
   
