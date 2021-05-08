@@ -25,4 +25,6 @@ Wheel:
       X               |                   XX
                       +
 
-
+Parenting: 
+Sum:
+Average:

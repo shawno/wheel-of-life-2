@@ -4,10 +4,9 @@ google.charts.setOnLoadCallback(drawChart);
 
 
 var options = { 
-  title: 'Wheel of Life over Time',
   displayAnnotations: true,
   curveType: 'function',
-  chartArea: {width: '90%', height: '80%'},
+  chartArea: {width: '90%', height: '85%'},
   legend: { 
     position: 'top',
     maxLines: 3 
@@ -22,60 +21,288 @@ var options = {
     }
   },
   hAxis: {
-    format:'MMM d, y'
+    format:'MMM `yy'
   },
   explorer: {
     axis: 'horizontal',
     keepInBounds: true,
     maxZoomOut: 1
   },
-  focusTarget: 'category'
-  // series:{
-  //   0:{
-  //     lineWidth: 80,
-  //     color: '#eef'
-  //   }
-  // }
+  focusTarget: 'category',
+  series:{
+    0:{
+      lineWidth: 50,
+      color: '#eef',
+      annotations: {
+        textStyle: {
+          color: '#333' 
+        }
+      }
+    }
+  }
 };
 
 function drawChart() {
-
-  //zero-based months(?!)
-  var data = google.visualization.arrayToDataTable([
-    ['Date', 'Career', 'Money', 'Health', 'Love & Romance', 'Friends & Family', 'Personal Growth', 'Fun & Recreation', 'Physical Environment'],
-    [new Date(2019,  9, 31),  2,  4,  9,  2,  8, 10,  3,  8],
-    [new Date(2019, 10,  1),  6,  3,  6,  0,  8,  7,  3,  1],
-    [new Date(2019, 10, 25),  1,  1,  9,  2,  8,  7,  5,  1],
-    [new Date(2019, 11,  2),  0,  2,  9 , 3,  8,  8,  5,  2],
-    [new Date(2020,  0,  5),  1,  0,  9,  6,  8,  8,  4,  4],
-    [new Date(2020,  1, 17),  2,  1,  5,  4,  7,  6,  7,  7],
-    [new Date(2020,  2, 23),  2,  2,  5,  4,  7,  7,  6,  7],
-    [new Date(2020,  3, 30),  6,  4,  7,  6,  6,  8,  6,  8],
-    [new Date(2020,  5, 14),  4,  5,  7,  4,  7,  8,  6,  9],
-    [new Date(2020,  6, 10),  2,  4,  6,  7,  6,  7,  5,  9],
-    [new Date(2020,  7, 10),  5,  4,  9,  8,  8,  8,  7,  9],
-    [new Date(2020,  8,  4),  6,  4,  8,  7,  7,  9,  8,  9],
-    [new Date(2020,  9, 12),  3,  3,  7,  7,  7,  7,  4,  9],
-    [new Date(2020, 10,  2),  2,  2,  6,  4,  6,  7,  5,  9],
-    [new Date(2020, 11,  2),  2,  1,  6,  4,  7,  6,  6,  8],
-    [new Date(2021,  0,  2),  4,  2,  8,  7,  5,  8,  7,  9],
-    [new Date(2021,  1,  1),  4,  4,  7,  7,  7,  7,  6,  8],
-    [new Date(2021,  2,  4),  4,  4,  8,  7,  5,  9,  5,  8],
-    [new Date(2021,  3, 12),  6,  4,  7,  7,  6,  6,  5,  7]
-
-  ]);
-
-
   data = new google.visualization.DataTable();
   data.addColumn('date', 'Date');
+
+  data.addColumn('number', 'Average');
+  data.addColumn({type:'string', role:'annotation'}); // annotation role col.
+  data.addColumn({type:'string', role:'annotationText'}); // annotationText col.
+  
   data.addColumn('number', 'Career');
   data.addColumn({type:'string', role:'annotation'}); // annotation role col.
   data.addColumn({type:'string', role:'annotationText'}); // annotationText col.
 
+  data.addColumn('number', 'Money');
+  data.addColumn({type:'string', role:'annotation'}); // annotation role col.
+  data.addColumn({type:'string', role:'annotationText'}); // annotationText col.
+
+  data.addColumn('number', 'Health');
+  data.addColumn({type:'string', role:'annotation'}); // annotation role col.
+  data.addColumn({type:'string', role:'annotationText'}); // annotationText col.
+
+  data.addColumn('number', 'Love & Romance');
+  data.addColumn({type:'string', role:'annotation'}); // annotation role col.
+  data.addColumn({type:'string', role:'annotationText'}); // annotationText col.
+
+  data.addColumn('number', 'Friends & Fam');
+  data.addColumn({type:'string', role:'annotation'}); // annotation role col.
+  data.addColumn({type:'string', role:'annotationText'}); // annotationText col.
+
+  data.addColumn('number', 'Parenting');
+  data.addColumn({type:'string', role:'annotation'}); // annotation role col.
+  data.addColumn({type:'string', role:'annotationText'}); // annotationText col.
+
+  data.addColumn('number', 'Personal Growth');
+  data.addColumn({type:'string', role:'annotation'}); // annotation role col.
+  data.addColumn({type:'string', role:'annotationText'}); // annotationText col.
+
+  data.addColumn('number', 'Fun & Recreation');
+  data.addColumn({type:'string', role:'annotation'}); // annotation role col.
+  data.addColumn({type:'string', role:'annotationText'}); // annotationText col.
+
+  data.addColumn('number', 'Physical Environment');
+  data.addColumn({type:'string', role:'annotation'}); // annotation role col.
+  data.addColumn({type:'string', role:'annotationText'}); // annotationText col.
+
+
+
   data.addRows([
-    [new Date(2019,  9, 31),  2, null, null], //career
-    [new Date(2019, 10,  1),  6, 'Test Label', 'test Body this thing happened'], //Career
-    [new Date(2019, 10, 25),  1, null, null]
+  
+    [/* Date */             new Date('Nov 1, 2019'),
+      /* Average */          4.25, '', '',
+      /* Career */           6, '', '',
+      /* Money */            3, '', '',
+      /* Health */           6, '', '',
+      /* Love & Romance */   0, '', '',
+      /* Friends & Fam */    8, '', '',
+      /* Parenting */        null, '', '',
+      /* Personal Growth */  7, '', '',
+      /* Fun & Rec */        3, '', '',
+      /* Physical Env */     1, '', '']
+    ,[/* Date */             new Date('Dec 2, 2019'), 
+      /* Average */          4.625, '', '',
+      /* Career */           0, '', '',
+      /* Money */            2, '', '',
+      /* Health */           9, '', '',
+      /* Love & Romance */   3, '', '',
+      /* Friends & Fam */    8, '', '',
+      /* Parenting */        null, '', '',
+      /* Personal Growth */  8, '', '',
+      /* Fun & Rec */        5, '', '',
+      /* Physical Env */     2, '', '']
+    ,[/* Date */             new Date('Jan 5, 2020'), 
+      /* Average */          5, '', '',
+      /* Career */           1, '', '',
+      /* Money */            0, '', '',
+      /* Health */           9, '', '',
+      /* Love & Romance */   6, '', '',
+      /* Friends & Fam */    8, '', '',
+      /* Parenting */        null, '', '',
+      /* Personal Growth */  8, '', '',
+      /* Fun & Rec */        4, '', '',
+      /* Physical Env */     4, 'Secured new home', '']
+    ,[/* Date */             new Date('Feb 17, 2020'), 
+      /* Average */          4.875, '', '',
+      /* Career */           2, '', '',
+      /* Money */            1, '', '',
+      /* Health */           5, 'Sick', '',
+      /* Love & Romance */   4, '', '',
+      /* Friends & Fam */    7, '', '',
+      /* Parenting */        null, '', '',
+      /* Personal Growth */  6, '', '',
+      /* Fun & Rec */        7, '', '',
+      /* Physical Env */     7, 'Moved to Cambie', '']
+    ,[/* Date */             new Date('Mar 23, 2020'), 
+      /* Average */          5, 'COVID begins', '',
+      /* Career */           2, '', '',
+      /* Money */            2, '', '',
+      /* Health */           5, '', '',
+      /* Love & Romance */   4, '', '',
+      /* Friends & Fam */    7, '', '',
+      /* Parenting */        null, '', '',
+      /* Personal Growth */  7, '', '',
+      /* Fun & Rec */        6, '', '',
+      /* Physical Env */     7, '', '']
+    ,[/* Date */             new Date('Apr 30, 2020'), 
+      /* Average */          6.375, '', '',
+      /* Career */           6, 'WFH', '',
+      /* Money */            4, '', '',
+      /* Health */           7, '', '',
+      /* Love & Romance */   6, '', '',
+      /* Friends & Fam */    6, '', '',
+      /* Parenting */        null, '', '',
+      /* Personal Growth */  8, '', '',
+      /* Fun & Rec */        6, '', '',
+      /* Physical Env */     8, '', '']
+    ,[/* Date */             new Date('Jun 14, 2020'), 
+      /* Average */          6.25, '', '',
+      /* Career */           4, '', '',
+      /* Money */            5, '', '',
+      /* Health */           7, 'Bike Crash', '',
+      /* Love & Romance */   4, '', '',
+      /* Friends & Fam */    7, '', '',
+      /* Parenting */        null, '', '',
+      /* Personal Growth */  8, '', '',
+      /* Fun & Rec */        6, '', '',
+      /* Physical Env */     9, '', '']
+    ,[/* Date */             new Date('Jul 10, 2020'), 
+      /* Average */          5.75, '', '',
+      /* Career */           2, '', '',
+      /* Money */            4, '', '',
+      /* Health */           6, '', '',
+      /* Love & Romance */   7, '', '',
+      /* Friends & Fam */    6, '', '',
+      /* Parenting */        null, '', '',
+      /* Personal Growth */  7, '', '',
+      /* Fun & Rec */        5, '', '',
+      /* Physical Env */     9, '', '']
+    ,[/* Date */             new Date('Aug 10, 2020'), 
+      /* Average */          7.25, '', '',
+      /* Career */           5, '', '',
+      /* Money */            4, '', '',
+      /* Health */           9, '', '',
+      /* Love & Romance */   8, '', '',
+      /* Friends & Fam */    8, '', '',
+      /* Parenting */        null, '', '',
+      /* Personal Growth */  8, '', '',
+      /* Fun & Rec */        7, '', '',
+      /* Physical Env */     9, '', '']
+    ,[/* Date */             new Date('Sep 4, 2020'), 
+      /* Average */          7.25, 'JCC', '',
+      /* Career */           6, '', '',
+      /* Money */            4, '', '',
+      /* Health */           8, '', '',
+      /* Love & Romance */   7, '', '',
+      /* Friends & Fam */    7, '', '',
+      /* Parenting */        null, '', '',
+      /* Personal Growth */  9, '', '',
+      /* Fun & Rec */        8, '', '',
+      /* Physical Env */     9, '', '']
+    ,[/* Date */             new Date('Oct 12, 2020'), 
+      /* Average */          5.875, '', '',
+      /* Career */           3, '', '',
+      /* Money */            3, '', '',
+      /* Health */           7, '', '',
+      /* Love & Romance */   7, '', '',
+      /* Friends & Fam */    7, '', '',
+      /* Parenting */        null, '', '',
+      /* Personal Growth */  7, '', '',
+      /* Fun & Rec */        4, '211 Prep', '',
+      /* Physical Env */     9, '', '']
+    ,[/* Date */             new Date('Nov 2, 2020'), 
+      /* Average */          5.125, '', '',
+      /* Career */           2, '', '',
+      /* Money */            2, '', '',
+      /* Health */           6, '', '',
+      /* Love & Romance */   4, 'CJ', '',
+      /* Friends & Fam */    6, '', '',
+      /* Parenting */        null, '', '',
+      /* Personal Growth */  7, '', '',
+      /* Fun & Rec */        5, '', '',
+      /* Physical Env */     9, '', '']
+    ,[/* Date */             new Date('Dec 2, 2020'), 
+      /* Average */          5.000, '', '',
+      /* Career */           2, '', '',
+      /* Money */            1, '', '',
+      /* Health */           6, '', '',
+      /* Love & Romance */   4, 'AL', '',
+      /* Friends & Fam */    7, '', '',
+      /* Parenting */        null, '', '',
+      /* Personal Growth */  6, '', '',
+      /* Fun & Rec */        6, '', '',
+      /* Physical Env */     8, '', '']
+    ,[/* Date */             new Date('jan 2, 2021'), 
+      /* Average */          6.25, '', '',
+      /* Career */           4, '', '',
+      /* Money */            2, '', '',
+      /* Health */           8, '', '',
+      /* Love & Romance */   7, '', '',
+      /* Friends & Fam */    5, 'Pamela', '',
+      /* Parenting */        null, '', '',
+      /* Personal Growth */  8, '', '',
+      /* Fun & Rec */        7, '', '',
+      /* Physical Env */     9, '', '']
+    ,[/* Date */             new Date('Feb 1, 2021'), 
+      /* Average */          6.25, '', '',
+      /* Career */           4, '', '',
+      /* Money */            4, 'Verafin', '',
+      /* Health */           7, '', '',
+      /* Love & Romance */   7, '', '',
+      /* Friends & Fam */    7, '', '',
+      /* Parenting */        null, '', '',
+      /* Personal Growth */  7, '', '',
+      /* Fun & Rec */        6, '', '',
+      /* Physical Env */     8, '', '']
+    ,[/* Date */             new Date('mar 4, 2021'), 
+      /* Average */          6.25, 'Mediation', '',
+      /* Career */           4, '', '',
+      /* Money */            4, '', '',
+      /* Health */           8, '', '',
+      /* Love & Romance */   7, '', '',
+      /* Friends & Fam */    5, '', '',
+      /* Parenting */        null, '', '',
+      /* Personal Growth */  9, '', '',
+      /* Fun & Rec */        5, '', '',
+      /* Physical Env */     8, '', '']
+    ,[/* Date */             new Date('apr 12, 2021'), 
+      /* Average */          6.00, '', '',
+      /* Career */           6, 'UCEO', '',
+      /* Money */            4, '', '',
+      /* Health */           7, '', '',
+      /* Love & Romance */   7, '', '',
+      /* Friends & Fam */    6, '', '',
+      /* Parenting */        null, '', '',
+      /* Personal Growth */  6, '', '',
+      /* Fun & Rec */        5, '', '',
+      /* Physical Env */     7, 'Settlement', '']
+    ,[/* Date */             new Date('may 2, 2021'),
+      /* Average */          6.67, '', '',
+      /* Career */           8, 'Focus', '',
+      /* Money */            5, '', '',
+      /* Health */           7, '', '',
+      /* Love & Romance */   7, '', '',
+      /* Friends & Fam */    6, '', '',
+      /* Parenting */        7, '', '',
+      /* Personal Growth */  8, '', '',
+      /* Fun & Rec */        5, '', '',
+      /* Physical Env */     7, '', '']
+
+
+    // ,[/* Date */             new Date(''), 
+    //   /* Average */          , '', '',
+    //   /* Career */           , '', '',
+    //   /* Money */            , '', '',
+    //   /* Health */           , '', '',
+    //   /* Love & Romance */   , '', '',
+    //   /* Friends & Fam */    , '', '',
+    //   /* Parenting */        , '', '',
+    //   /* Personal Growth */  , '', '',
+    //   /* Fun & Rec */        , '', '',
+    //   /* Physical Env */     , '', '']
+
+
   ]);
   
   
