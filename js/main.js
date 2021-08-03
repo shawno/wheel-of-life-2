@@ -310,6 +310,17 @@ function drawChart() {
       /* Personal Growth */  9, '', '',
       /* Fun & Rec */        6, '', '',
       /* Physical Env */     8, 'Chair', '']
+    ,[/* Date */             new Date('August 2, 2021'), 
+      /* Average */          7.22, '', '',
+      /* Career */           7, 'UCEO round 2', '',
+      /* Money */            6, '', '',
+      /* Health */           8, 'Fully Vaxed', '',
+      /* Love & Romance */   7, 'KFZG', '',
+      /* Friends & Fam */    7, '', '',
+      /* Parenting */        7, '', '',
+      /* Personal Growth */  8, 'Retreat', '',
+      /* Fun & Rec */        7, '14,000m', '',
+      /* Physical Env */     8, '', '']
 
 
 
