@@ -354,6 +354,17 @@ function drawChart() {
       /* Personal Growth */  7, '', '',
       /* Fun & Rec */        5, '', '',
       /* Physical Env */     7, '', '']
+    ,[/* Date */             new Date('December 11, 2021'), 
+      /* Average */          7, '', '',
+      /* Career */           8, '', '',
+      /* Money */            6, '', '',
+      /* Health */           5, '', '',
+      /* Love & Romance */  10, '', '',
+      /* Friends & Fam */    7, '', '',
+      /* Parenting */        8, '', '',
+      /* Personal Growth */  7, '', '',
+      /* Fun & Rec */        5, '', '',
+      /* Physical Env */     7, '', '']
 
     // ,[/* Date */             new Date(''), 
     //   /* Average */          , '', '',
