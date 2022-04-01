@@ -94,6 +94,17 @@ function drawChart() {
       /* My Body */      5, '', '',
       /* Environment */  8, '', '',
       /* Drive */        9, '', '']
+
+    ,[/* Date */         new Date('April 1, 2022'),
+      /* Average */      6.25, '', '',
+      /* Inside <3 */    7, '', '',
+      /* Outside <3 */   8, '', '',
+      /* Freedom */      6, '', '',
+      /* Zen */          3, '', '',
+      /* My Mind */      6, '', '',
+      /* My Body */      6, '', '',
+      /* Environment */  7, '', '',
+      /* Drive */        7, '', '']
     
     // ,[/* Date */         new Date(''),
     //   /* Average */      , '', '',
